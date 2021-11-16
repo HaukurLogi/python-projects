@@ -1,4 +1,5 @@
 import random
+
 rng = random.randint(1,3)
 if rng == 1:
     enemy = "Rock"
@@ -8,11 +9,14 @@ if rng == 3:
     enemy = "Scissors"
 
 Choice = input( "(allt lítið) Choice:" )
+
+# Litlir Stafir
+
 if Choice == ("rock") and enemy == ("Paper"):
      print ("Enemy Chose Paper. You Lose!")
 if Choice == ("rock") and enemy == ("Scissors"):
      print ("Enemy Chose Scissors. You Win!")
-if Choice == ("paper")  and enemy == ("Scissors"):
+if Choice == ("paper") and enemy == ("Scissors"):
      print ("Enemy Chose Scissors. You Lose!")
 if Choice == ("paper") and enemy == ("Rock"):
      print ("Enemy Chose Rock. You Win!")
@@ -25,4 +29,25 @@ if Choice == ("rock") and enemy == ("Rock"):
 if Choice == ("paper") and enemy == ("Paper"):
      print ("Enemy Chose Paper. It's a draw!")
 if Choice == ("scissors") and enemy == ("Scissors"):
+     print ("Enemy Chose Paper. It's a draw!")
+
+# Stórir Stafir
+
+if Choice == ("Rock") and enemy == ("Paper"):
+     print ("Enemy Chose Paper. You Lose!")
+if Choice == ("Rock") and enemy == ("Scissors"):
+     print ("Enemy Chose Scissors. You Win!")
+if Choice == ("Paper") and enemy == ("Scissors"):
+     print ("Enemy Chose Scissors. You Lose!")
+if Choice == ("Paper") and enemy == ("Rock"):
+     print ("Enemy Chose Rock. You Win!")
+if Choice == ("Scissors") and enemy == ("Rock"):
+     print ("Enemy Chose Rock. You Lose!")
+if Choice == ("Scissors") and enemy == ("Paper"):
+     print ("Enemy Chose Paper. You Win!")
+if Choice == ("Rock") and enemy == ("Rock"):
+     print ("Enemy Chose Rock. It's a draw!")
+if Choice == ("Paper") and enemy == ("Paper"):
+     print ("Enemy Chose Paper. It's a draw!")
+if Choice == ("Scissors") and enemy == ("Scissors"):
      print ("Enemy Chose Paper. It's a draw!")
