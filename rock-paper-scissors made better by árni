@@ -1,17 +1,17 @@
 import random
 
 BEATEN_BY = {
-     "rock": "paper",
-     "paper": "scissors",
-     "scissors": "rock",
+     "paper": "rock",
+     "scissors": "paper",
+     "rock": "scissors",
 }
 
 def game_result(us, them):
      if us == them:
-          return "draw"
+          return "It's a draw"
      if them == BEATEN_BY[us]:
-          return "win"
-     return "lose"
+          return "You win"
+     return "You lose"
 
 rng = random.randint(1,3)
 if rng == 1:
@@ -23,4 +23,4 @@ if rng == 3:
 
 choice = input("Choice: ")
 choice = choice.lower()
-print(f"Enemy chose {enemy}. You {game_result(choice, enemy)}!")
+print(f"Enemy chose {enemy}. {game_result(choice, enemy)}!")
