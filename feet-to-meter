@@ -1,0 +1,9 @@
+print("Feet to Meter Converter 3000")
+f = float(input("Feet:"))
+m = f / 3.280
+
+if m < 1:
+    print("Invalid Number")
+
+if m > 1:
+    print(round(m, 2))
