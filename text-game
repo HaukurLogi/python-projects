@@ -1,0 +1,84 @@
+loop_control = True
+while loop_control == True:
+    print("-------------------------------------------------")
+    print("         __             __                       ")
+    print("   _____/ /_____ ______/ /_                      ")
+    print("  / ___/ __/ __ `/ ___/ __/                      ")
+    print(" (__  ) /_/ /_/ / /  / /_                        ")
+    print("/____/\__/\__,_/_/   \__/                        ")
+    print("                                                 ")
+    print("-------------------------------------------------")
+    print("You wake up inside a strange room, it's dark and cold.")
+    print("You see a bag in the distance: Bag")
+    print("You see a Bathroom sign: Bathroom")
+    print("You see a wall: Wall")
+    print("-------------------------------------------------")    
+    user_input = input("What do you do? : ")
+    user_input = user_input.lower()
+    dead = False
+
+    if user_input == ("bag"):
+        print("-------------------------------------------------")
+        print("You reach in and find a gun.")
+        print("You shoot yourself and die due to hole in the head syndrome.")
+        print("-------------------------------------------------")
+        print("    ____                 __                      ")
+        print("   / __ \___  ____ _____/ /                      ")
+        print("  / / / / _ \/ __ `/ __  /                       ")
+        print(" / /_/ /  __/ /_/ / /_/ /                        ")
+        print("/_____/\___/\__,_/\__,_/                         ")
+        print("                                                 ")
+        dead = True
+
+    if user_input == ("wall"):
+        print("-------------------------------------------------")
+        print("You go towards the wall and you die of bordom.")
+        print("-------------------------------------------------")
+        print("    ____                 __                      ")
+        print("   / __ \___  ____ _____/ /                      ")
+        print("  / / / / _ \/ __ `/ __  /                       ")
+        print(" / /_/ /  __/ /_/ / /_/ /                        ")
+        print("/_____/\___/\__,_/\__,_/                         ")
+        print("                                                 ")
+        dead = True
+
+    if user_input == ("bathroom"):
+        print("-------------------------------------------------")
+        print("You go inside the bathroom and find a man walking.")
+        print("OMG IT'S STEPHEN WALKING!")
+        print("You go towards him and you take a selfie.")
+        print("He says that he's going to kill you.")
+        print("What do you do?")
+        print("A) Run away.") 
+        print("B) Fight him.")
+    
+    if dead == False:
+        user_input1 = input("Choice: ")    
+        user_input1 = user_input1.lower()
+
+    if dead == False:
+        if user_input1 == ("a"):
+            print("-------------------------------------------------")
+            print("You run away and die of being a coward.          ")
+            print("-------------------------------------------------")
+            print("    ____                 __                      ")
+            print("   / __ \___  ____ _____/ /                      ")
+            print("  / / / / _ \/ __ `/ __  /                       ")
+            print(" / /_/ /  __/ /_/ / /_/ /                        ")
+            print("/_____/\___/\__,_/\__,_/                         ")
+            print("                                                 ")
+            dead = True
+
+    if dead == False:
+        if user_input1 == ("b"):
+            print("-------------------------------------------------")
+            print("You fight him and win.")
+            print("-------------------------------------------------")
+            print("           _                                     ")
+            print(" _      __(_)___                                 ")
+            print("| | /| / / / __ \                                ")
+            print("| |/ |/ / / / / /                                ")
+            print("|__/|__/_/_/ /_/                                 ")
+            print("                                                 ")
+            print("-------------------------------------------------")
+            loop_control = False
