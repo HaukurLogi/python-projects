@@ -1,0 +1,22 @@
+import random
+loop_control = True
+red_team = 0
+blue_team = 0
+teams = red_team + blue_team
+while loop_control == True:
+    rng = random.randint(1,2)
+
+    if rng == 1:
+        blue_team += 1
+
+    if rng == 2:
+        red_team += 1
+    
+    if red_team + blue_team >= 1000:
+        print(f"Red team had {red_team}!")
+        print(f"Blue team had {blue_team}!")
+        if red_team >= blue_team:
+            print("Red team won!")
+        else:
+            print("Blue team won!")
+        loop_control = False
