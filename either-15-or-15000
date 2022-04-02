@@ -15,5 +15,5 @@ while loop_control == True:
     print(count)
 
     if count == 10: 
-        print(f"That took {total} many times!")
+        print(f"That took {total} generations!")
         loop_control = False
