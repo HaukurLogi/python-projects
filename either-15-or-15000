@@ -1,0 +1,19 @@
+import random
+
+count = 0
+total = 0
+
+loop_control = True
+while loop_control == True:
+    rng = random.randint(1,2)
+    if rng == 1:
+        count -= 1
+        total += 1
+    if rng == 2:
+        count += 1
+        total += 1
+    print(count)
+
+    if count == 10: 
+        print(f"That took {total} many times!")
+        loop_control = False
