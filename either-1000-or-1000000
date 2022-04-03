@@ -1,0 +1,28 @@
+import random
+
+user_input = input("How many generations do you think it will take? : ")
+
+count = 0
+total = 0
+difference = 0
+convert = int(user_input)
+
+loop = True
+while loop == True:
+    rng = random.randint(1,2)
+    if rng == 1:
+        count -= 1
+        total += 1
+    else:
+        count += 1
+        total += 1
+    print(count)
+
+    if count == 100:
+        loop = False
+        print(f"That took {total} generations!")
+        if convert >= total:
+            difference = convert - total
+        if convert <= total:
+            difference = total - convert
+        print(f"You were {difference} generations off!")
