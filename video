@@ -1,0 +1,27 @@
+import cv2
+
+video = cv2.VideoCapture(0)
+choose_letters = int(input("""Choose
+1: █▓▒░:. 
+2: Ñ@#W$9876543210?!abc;:+=-,._
+
+Choose: """))
+
+if choose_letters == 1:
+    letters = '█▓▒░:. '
+if choose_letters == 2:
+    letter = 'Ñ@#W$9876543210?!abc;:+=-,._ '
+if choose_letters > 2:
+    print("Invalid Syntax. :/")
+
+print(f'Press "q" To Exit: ')
+
+ret, frame = video.read()
+
+while(True):
+    cv2.imshow('frame', frame)
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+video.release()
+cv2.destroyAllWindows
