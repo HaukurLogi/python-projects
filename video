@@ -1,4 +1,7 @@
+import os 
 import cv2
+
+SHOW_REAL_VIDEO = True
 
 video = cv2.VideoCapture(0)
 choose_letters = int(input("""Choose
@@ -8,20 +11,49 @@ choose_letters = int(input("""Choose
 Choose: """))
 
 if choose_letters == 1:
-    letters = '█▓▒░:. '
+    def convert_row_to_ascii(row):
+        LETTER = [' ' ,'.' ,':' ,'░' ,'▒' ,'▓' ,'█']
+        return tuple(LETTER[int(x / (255 / 6))] for x in row)[::-1]
 if choose_letters == 2:
-    letter = 'Ñ@#W$9876543210?!abc;:+=-,._ '
+    def convert_row_to_ascii(row):
+        LETTER = [' ' ,'_' ,'.' ,',' ,'-' ,'=' ,'+' ,':' ,';' ,'c' ,'b' ,'a' ,'!' ,'?' ,'0' ,'1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'$' ,'W' ,'#' ,'@' ,'Ñ']
+        return tuple(LETTER[int(x / (255 / 23))] for x in row)[::-1]
+
+    
 if choose_letters > 2:
     print("Invalid Syntax. :/")
 
-print(f'Press "q" To Exit: ')
+
+
+def convert_to_ascii(input_grays):
+    return tuple(convert_row_to_ascii(row) for row in input_grays)
+
+def print_array(input_ascii_array):
+    os.system("clear")
+    print('\n'.join((''.join(row) for row in input_ascii_array)), end='')
 
 ret, frame = video.read()
 
-while(True):
-    cv2.imshow('frame', frame)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
+while(cv2.waitKey(1) & 0xFF != ord('q')):
+    # Get screensize for reduction
+    screen_height, screen_width = os.popen('stty size', 'r').read().split()
 
+    # Get image data
+    ret, frame = video.read()
+
+    # Convert data to grayscale
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    # Reduce grayscale array to proper resolution
+    reduced = cv2.resize(gray, (int(screen_width), int(screen_height)))
+
+    # Plug in reduced resolution numpy array for ascii converter func
+    converted = convert_to_ascii(reduced)
+    print_array(converted)
+
+    # Display the resulting frame
+    if SHOW_REAL_VIDEO == True:
+        cv2.imshow('frame', reduced)
+        
 video.release()
 cv2.destroyAllWindows
