@@ -1,25 +1,23 @@
 try:
     import cv2
     video = cv2.VideoCapture(0)
-    choose_letters = int(input("""Choose
+    choose_letters = int(input("""
     1: █▓▒░:. 
     2: Ñ@#W$9876543210?!abc;:+=-,._
 
     Choose: """))
 
     if choose_letters == 1:
-        def convert_row_to_ascii(row):
-            LETTER = [' ' ,'.' ,':' ,'░' ,'▒' ,'▓' ,'█']
-            letter_length = len(LETTER) - 1
-            return tuple(LETTER[int(x / (255 / letter_length))] for x in row)[::-1]
-    if choose_letters == 2:
-        def convert_row_to_ascii(row):
-            LETTER = [' ' ,'_' ,'.' ,',' ,'-' ,'=' ,'+' ,':' ,';' ,'c' ,'b' ,'a' ,'!' ,'?' ,'0' ,'1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'$' ,'W' ,'#' ,'@' ,'Ñ']
-            letter_length = len(LETTER) - 1
-            return tuple(LETTER[int(x / (255 / letter_length))] for x in row)[::-1]
+        LETTER = [' ', '.', ':', '░', '▒', '▓', '█']
+    elif choose_letters == 2:
+        LETTER = [' ' ,'_' ,'.' ,',' ,'-' ,'=' ,'+' ,':' ,';' ,'c' ,'b' ,'a' ,'!' ,'?' ,'0' ,'1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'$' ,'W' ,'#' ,'@' ,'Ñ']
+
+    def convert_row_to_ascii(row):
+        letter_length = len(LETTER) - 1
+        return tuple(LETTER[int(x / (255 / letter_length))] for x in row)[::-1]
 
     if choose_letters > 2:
-        print("Invalid Syntax. :/")
+        print("Invalid syntax. :/")
 
     def convert_to_ascii(input_grays):
         return tuple(convert_row_to_ascii(row) for row in input_grays)
@@ -38,7 +36,8 @@ try:
 
         cv2.imshow('frame', reduced)
 
-        print(" Press Control+C to terminate. ")
+        print(""" 
+        Press Control+C to terminate. """)
 
         if cv2.waitKey(1) & 0xFF == ord('q'):
             video.release()
