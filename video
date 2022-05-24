@@ -17,7 +17,7 @@ try:
         return tuple(LETTER[int(x / (255 / letter_length))] for x in row)[::-1]
 
     if choose_letters > 2:
-        print("Invalid syntax. :/")
+        print("Invalid syntax. :/ ")
 
     def convert_to_ascii(input_grays):
         return tuple(convert_row_to_ascii(row) for row in input_grays)
@@ -43,4 +43,4 @@ try:
             video.release()
             cv2.destroyAllWindows
 except KeyboardInterrupt:
-    print(" You terminated the program. ")
+    print("You terminated the program. ")
