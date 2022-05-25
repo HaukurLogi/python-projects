@@ -1,5 +1,6 @@
 try:
     import cv2
+    import sys
     video = cv2.VideoCapture(0)
     choose_letters = int(input("""
     1: █▓▒░:. 
@@ -11,13 +12,12 @@ try:
         LETTER = [' ', '.', ':', '░', '▒', '▓', '█']
     elif choose_letters == 2:
         LETTER = [' ' ,'_' ,'.' ,',' ,'-' ,'=' ,'+' ,':' ,';' ,'c' ,'b' ,'a' ,'!' ,'?' ,'0' ,'1' ,'2' ,'3' ,'4' ,'5' ,'6' ,'7' ,'8' ,'9' ,'$' ,'W' ,'#' ,'@' ,'Ñ']
+    else:
+        print("Invalid syntax. :/ ")
 
     def convert_row_to_ascii(row):
         letter_length = len(LETTER) - 1
         return tuple(LETTER[int(x / (255 / letter_length))] for x in row)[::-1]
-
-    if choose_letters > 2:
-        print("Invalid syntax. :/ ")
 
     def convert_to_ascii(input_grays):
         return tuple(convert_row_to_ascii(row) for row in input_grays)
@@ -30,17 +30,18 @@ try:
 
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
         reduced = cv2.resize(gray, (int(64), int(32)))
-
         converted = convert_to_ascii(reduced)
         print_array(converted)
-
         cv2.imshow('frame', reduced)
-
+    
         print(""" 
         Press Control+C to terminate. """)
 
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            video.release()
-            cv2.destroyAllWindows
 except KeyboardInterrupt:
     print("You terminated the program. ")
+    # import your file 
+    oiginal_stdout = sys.stdout
+    with open('picture.txt', 'w') as f:
+        sys.stdout = f
+        print_array(converted)
+ 
