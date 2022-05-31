@@ -1,0 +1,48 @@
+name = input("What is your name?: ")
+age = int(input("How old are you?: "))
+hobby = input("What are your hobbies?: ")
+hobby = hobby.lower()
+pets = input("Do you have any pets?: ")
+
+if pets == "no":
+    pass
+elif pets == "yes":
+    how_many = input("Do you have multiple pets?: ")
+    how_many = how_many.lower()
+else:
+    print("Invalid syntax. :/")
+
+if pets == "yes":
+    if how_many == "no":
+        pets_name = input("What is their name?: ")
+        pets_name == pets_name.lower()
+    elif how_many == "yes": 
+        how_many == how_many
+        how_many = int(input("How many pets do you have?: "))
+    else:
+        print("Invalid syntax. :/")
+
+if pets == "yes":
+    if how_many > 2:
+        print("You failed because you have too many pets.")
+    elif how_many == 2:
+        pets_name = input("What is one pet name?: ")
+        pets_name = pets_name.lower()
+        pets_name0 = input("What is other pet name?: ")
+        pets_name0 = pets_name0.lower()
+       
+
+print("Ok we're done! File has been made.")
+
+
+
+# Enter your file here
+file = "Hello-my-name-is.txt"
+
+if pets == "yes":
+    f = open(f"{file}", "w")
+    f.write(f"Hello my name is {name}. I am {age} and I love {hobby}. I have {how_many} pets. Their name is {pets_name} and {pets_name0}.")
+
+else:
+    f = open(f"{file}", "w")
+    f.write(f"Hello my name is {name}. I am {age} and I love {hobby}.")
