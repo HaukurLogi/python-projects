@@ -1,5 +1,3 @@
-
-   
 import random
 def main(): 
     astronauts = ['red', 'blue', 'pink', 'yellow', 'black', 'green', 'white', 'cyan', 'purple', 'orange']
@@ -14,4 +12,5 @@ def main():
         main()
 
     print(f'{imposter} and {other_imposter} are the imposters.')
+    
 main()
