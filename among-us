@@ -1,15 +1,17 @@
 
    
 import random
+def main(): 
+    astronauts = ['red', 'blue', 'pink', 'yellow', 'black', 'green', 'white', 'cyan', 'purple', 'orange']
 
-astronauts = ['red', 'blue', 'pink', 'yellow', 'black', 'green', 'white', 'cyan', 'purple', 'orange']
 
-
-for x in range(2):
     imposter1 = random.randint(0,9)
     imposter2 = random.randint(0,9)
+    imposter = astronauts[imposter1]   
+    other_imposter = astronauts[imposter2] 
 
-imposter = astronauts[imposter1]
-other_imposter = astronauts[imposter2]
+    if imposter ==  other_imposter:
+        main()
 
-print(f'{imposter} and {other_imposter} are the imposters.')
+    print(f'{imposter} and {other_imposter} are the imposters.')
+main()
